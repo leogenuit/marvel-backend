@@ -4,8 +4,11 @@ const router = express.Router();
 
 router.get("/characters", async (req, res) => {
   try {
+    const name = req.query.name || "";
+    const limit = req.query.limit || 100;
+    const skip = req.query.skip || 0;
     const response = await axios.get(
-      `https://lereacteur-marvel-api.herokuapp.com/characters?apiKey=${process.env.API_KEY}`
+      `https://lereacteur-marvel-api.herokuapp.com/characters?apiKey=${process.env.API_KEY}&name=${name}&limit=${limit}&skip=${skip}`
     );
     res.status(200).json(response.data);
   } catch (error) {

@@ -4,8 +4,9 @@ const router = express.Router();
 
 router.get("/comics", async (req, res) => {
   try {
+    const title = req.query.title || "";
     const response = await axios.get(
-      `https://lereacteur-marvel-api.herokuapp.com/comics?apiKey=${process.env.API_KEY}`
+      `https://lereacteur-marvel-api.herokuapp.com/comics?apiKey=${process.env.API_KEY}&title=${title}`
     );
     res.status(200).json(response.data);
   } catch (error) {
@@ -17,7 +18,7 @@ router.get("/comics/:characterId", async (req, res) => {
   try {
     const characterId = req.params.characterId;
     const response = await axios.get(
-      `https://lereacteur-marvel-api.herokuapp.com/comic/${characterId}?apiKey=${process.env.API_KEY}`
+      `https://lereacteur-marvel-api.herokuapp.com/comics/${characterId}?apiKey=${process.env.API_KEY}`
     );
     res.status(200).json(response.data);
   } catch (error) {
