@@ -7,7 +7,7 @@ app.use(cors());
 app.use(express.json());
 
 mongoose.connect(
-  "mongodb+srv://genuitleo:5diCdUq9l24S17Ro@cluster0.mlksylf.mongodb.net/"
+  "mongodb+srv://genuitleo:5diCdUq9l24S17Ro@cluster0.mlksylf.mongodb.net/marvel-app"
 );
 
 const comicsRoutes = require("./routes/comics");
