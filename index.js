@@ -6,7 +6,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// mongoose.connect("mongodb://127.0.0.1/marvel-app");
+mongoose.connect("mongodb:// 127.0.0.1/marvel-app");
 
 const comicsRoutes = require("./routes/comics");
 const charactersRoutes = require("./routes/characters");
